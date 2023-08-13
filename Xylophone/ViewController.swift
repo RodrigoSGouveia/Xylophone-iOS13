@@ -23,47 +23,10 @@ class ViewController: UIViewController {
 	
 	func playSound(textLabel: String?){
 		
-		switch textLabel {
-			case "C":
-				guard let url = Bundle.main.url(forResource: "C", withExtension:"wav") else { return }
-				player = try! AVAudioPlayer(contentsOf: url)
-				player?.volume = 0.08
-				player?.play()
-			case "D":
-				guard let url = Bundle.main.url(forResource: "D", withExtension:"wav") else { return }
-				player = try! AVAudioPlayer(contentsOf: url)
-				player?.volume = 0.08
-				player?.play()
-			case "E":
-				guard let url = Bundle.main.url(forResource: "E", withExtension:"wav") else { return }
-				player = try! AVAudioPlayer(contentsOf: url)
-				player?.volume = 0.08
-				player?.play()
-						
-			case "F":
-				guard let url = Bundle.main.url(forResource: "F", withExtension:"wav") else { return }
-				player = try! AVAudioPlayer(contentsOf: url)
-				player?.volume = 0.08
-				player?.play()
-			case "G":
-				guard let url = Bundle.main.url(forResource: "G", withExtension:"wav") else { return }
-				player = try! AVAudioPlayer(contentsOf: url)
-				player?.volume = 0.08
-				player?.play()
-			case "A":
-				guard let url = Bundle.main.url(forResource: "A", withExtension:"wav") else { return }
-				player = try! AVAudioPlayer(contentsOf: url)
-				player?.volume = 0.08
-				player?.play()
-			case "B":
-				guard let url = Bundle.main.url(forResource: "B", withExtension:"wav") else { return }
-				player = try! AVAudioPlayer(contentsOf: url)
-				player?.volume = 0.08
-				player?.play()
-			default:
-				return
-		}
-		
+		guard let url = Bundle.main.url(forResource: textLabel ?? "", withExtension:"wav") else { return }
+		player = try! AVAudioPlayer(contentsOf: url)
+		player?.volume = 0.08
+		player?.play()
 		
 	}
 }
