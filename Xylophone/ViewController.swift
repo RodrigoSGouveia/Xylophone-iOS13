@@ -18,7 +18,10 @@ class ViewController: UIViewController {
 
 	@IBAction func keyPressed(_ sender: UIButton) {
 		print(sender.titleLabel ?? "")
+		changeOpacity(button: sender, opacity: 0.5)
 		playSound(textLabel: sender.titleLabel?.text)
+		sleep(UInt32(0.2))
+		changeOpacity(button: sender, opacity: 1)
 	}
 	
 	func playSound(textLabel: String?){
@@ -29,5 +32,11 @@ class ViewController: UIViewController {
 		player?.play()
 		
 	}
+	
+	func changeOpacity(button: UIButton, opacity: CGFloat){
+		button.backgroundColor?.withAlphaComponent(opacity)
+	
+	}
+	
 }
 
