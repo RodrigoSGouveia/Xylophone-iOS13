@@ -20,8 +20,8 @@ class ViewController: UIViewController {
 		print(sender.titleLabel ?? "")
 		changeOpacity(button: sender, opacity: 0.5)
 		playSound(textLabel: sender.titleLabel?.text)
-		sleep(UInt32(0.2))
-		changeOpacity(button: sender, opacity: 1)
+		awaitSleep(sender: sender)
+
 	}
 	
 	func playSound(textLabel: String?){
@@ -36,6 +36,14 @@ class ViewController: UIViewController {
 	func changeOpacity(button: UIButton, opacity: CGFloat){
 		button.backgroundColor?.withAlphaComponent(opacity)
 	
+	}
+	
+	func awaitSleep(sender: UIButton){
+		//Code should execute after 0.2 second delay.
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+			//Bring's sender's opacity back up to fully opaque.
+			sender.alpha = 1.0
+		}
 	}
 	
 }
